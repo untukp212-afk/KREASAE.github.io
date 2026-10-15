@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KREASAE – Salatiga Eco Park</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ea;--sf:#fff;--tx:#1f2a1f;--mu:#6b756b;--ac:#2f6b3f;--ac2:#c9a24a;--bd:#e0dccc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a14;--sf:#1e271e;--tx:#eef2e8;--mu:#9aa89a;--ac:#6fbf82;--ac2:#d9b45c;--bd:#2f3b2f}}
+:root[data-theme="dark"]{--bg:#141a14;--sf:#1e271e;--tx:#eef2e8;--mu:#9aa89a;--ac:#6fbf82;--ac2:#d9b45c;--bd:#2f3b2f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Georgia,'Times New Roman',serif;line-height:1.5}
+html{scroll-padding-top:70px}
+button,input,select{font:inherit;color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--sf);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;padding:10px 14px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:22px;letter-spacing:2px;color:var(--ac);margin-right:auto}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:8px 14px;cursor:pointer}
+.btn.o{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.nb{background:none;border:0;padding:6px 8px;cursor:pointer;color:var(--tx);border-radius:8px}.nb.on{background:var(--bd)}
+select{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:6px}
+main{max-width:1000px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,var(--ac),#1c3d25);color:#fff;border-radius:18px;padding:34px 22px;margin-bottom:18px}
+.hero h1{margin:0 0 6px;font-size:30px}.hero p{margin:0;opacity:.9}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px}.chip{white-space:nowrap;border:1px solid var(--bd);background:var(--sf);border-radius:20px;padding:6px 12px;cursor:pointer}.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.em{font-size:48px;text-align:center;background:var(--bg);border-radius:10px;padding:14px}
+.card h3{margin:0;font-size:16px}.card small{color:var(--mu)}.pr{color:var(--ac);font-weight:700}
+h2{margin:22px 0 10px}
+.panel{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:12px}
+label{display:block;font-size:13px;color:var(--mu);margin:10px 0 3px}
+input[type=text],input[type=email],input[type=password],input[type=tel]{width:100%;padding:9px;border:1px solid var(--bd);border-radius:8px;background:var(--bg)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)}
+.pay label{display:flex;gap:8px;align-items:center;color:var(--tx);font-size:15px;padding:8px;border:1px solid var(--bd);border-radius:10px;margin:6px 0}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.vid{display:block;text-decoration:none;color:#fff;border-radius:14px;aspect-ratio:9/12;padding:12px;background:linear-gradient(160deg,#2f6b3f,#0f2316);display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.vid:nth-child(2){background:linear-gradient(160deg,#8a5a2b,#2b1a0c)}.vid:nth-child(3){background:linear-gradient(160deg,#3a6b78,#0d232a)}.vid:nth-child(4){background:linear-gradient(160deg,#7a4a6b,#25132a)}
+.play{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);font-size:44px}
+#cartP{position:fixed;right:0;top:0;bottom:0;width:min(380px,100%);background:var(--sf);border-left:1px solid var(--bd);z-index:9;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));overflow:auto;transform:translateX(100%);transition:.25s}
+#cartP.open{transform:none}
+#ai{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:8}
+#aiBox{display:none;position:fixed;right:14px;bottom:calc(70px + env(safe-area-inset-bottom,0px));width:min(360px,calc(100% - 28px));height:420px;background:var(--sf);border:1px solid var(--bd);border-radius:16px;z-index:8;flex-direction:column;overflow:hidden}
+#aiBox.open{display:flex}#msgs{flex:1;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.m{padding:8px 11px;border-radius:12px;max-width:88%;white-space:pre-wrap;font-size:14px}.m.u{background:var(--ac);color:#fff;align-self:flex-end}.m.b{background:var(--bg)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:8px 16px;border-radius:20px;z-index:20;display:none}
+footer{text-align:center;color:var(--mu);padding:24px;font-size:13px}
+.hide{display:none}
+html{scroll-behavior:smooth}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+main>section{animation:fade .4s ease}
+.grid.anim .card{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.grid.anim .card:nth-child(2){animation-delay:.04s}.grid.anim .card:nth-child(3){animation-delay:.08s}.grid.anim .card:nth-child(4){animation-delay:.12s}.grid.anim .card:nth-child(5){animation-delay:.16s}.grid.anim .card:nth-child(6){animation-delay:.2s}.grid.anim .card:nth-child(n+7){animation-delay:.24s}
+.card,.vid,.chip,.btn,.nb,select{transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease,opacity .25s ease}
+.card:hover,.vid:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.em{transition:transform .35s ease}.card:hover .em{transform:scale(1.06)}
+.btn:hover{filter:brightness(1.08)}.btn:active,.chip:active{transform:scale(.95)}
+.chips{scroll-behavior:smooth;scrollbar-width:none}
+#bk{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s;z-index:8}#bk.on{opacity:1;pointer-events:auto}
+#cartP{transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:-8px 0 30px rgba(0,0,0,.15)}
+#aiBox{display:flex!important;opacity:0;visibility:hidden;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .25s,transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s}
+#aiBox.open{opacity:1;visibility:visible;transform:none}
+#msgs{scroll-behavior:smooth}.m{animation:fade .3s ease}
+.toast{animation:fade .3s ease}
+header{backdrop-filter:blur(8px)}
+:root{--ease:cubic-bezier(.22,1,.36,1)}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+main>section{animation:fade .7s var(--ease)}
+.grid.anim .card{animation:rise .8s var(--ease) both}
+.grid.anim .card:nth-child(2){animation-delay:.06s}.grid.anim .card:nth-child(3){animation-delay:.12s}.grid.anim .card:nth-child(4){animation-delay:.18s}.grid.anim .card:nth-child(5){animation-delay:.24s}.grid.anim .card:nth-child(6){animation-delay:.3s}.grid.anim .card:nth-child(n+7){animation-delay:.36s}
+.card,.vid,.chip,.btn,.nb,select{transition-duration:.5s;transition-timing-function:var(--ease)}
+.card:hover,.vid:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.em{transition:transform .8s var(--ease)}.card:hover .em{transform:scale(1.04)}
+.btn:hover{filter:brightness(1.05)}
+.btn:active,.chip:active{transform:scale(.975);transition-duration:.15s}
+#bk{transition:opacity .5s var(--ease)}
+#cartP{transition:transform .6s var(--ease)}
+#aiBox{transition:opacity .4s var(--ease),transform .55s var(--ease),visibility .55s}
+.m,.toast{animation:fade .5s var(--ease)}
+.th{display:inline-block;width:46px;vertical-align:middle;border-radius:8px;margin-right:8px;overflow:hidden}.th svg{width:46px;height:40px;display:block}
+.em img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.th img{width:46px;height:40px;object-fit:cover;display:block}.em{padding:8px}.em svg{width:100%;height:112px;display:block}
+:root{--bg:#fbf7f1;--sf:#fff;--tx:#2b2623;--mu:#7a6f66;--ac:#c8553d;--ac2:#e9a23b;--bd:#eee5da}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1715;--sf:#27211e;--tx:#f5ede4;--mu:#b3a699;--ac:#e8775f;--ac2:#f0b252;--bd:#3a322d}}
+:root[data-theme="dark"]{--bg:#1b1715;--sf:#27211e;--tx:#f5ede4;--mu:#b3a699;--ac:#e8775f;--ac2:#f0b252;--bd:#3a322d}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif}
+h2,h3,.logo,.hero h1{letter-spacing:-.01em}
+.logo{font-weight:800;letter-spacing:.14em}
+header{border-bottom:0;box-shadow:0 1px 0 var(--bd)}
+.nb{border-radius:999px;padding:7px 14px;font-weight:500}.nb.on{background:var(--ac);color:#fff}
+.btn{border-radius:999px;padding:9px 18px;font-weight:600}.btn.o{border:1.5px solid var(--bd)}
+.hero{background:linear-gradient(120deg,var(--ac),var(--ac2));border-radius:28px;padding:44px 28px}.hero h1{font-size:clamp(28px,6vw,44px);font-weight:800;line-height:1.1}
+.card{position:relative;cursor:pointer;border:0;border-radius:22px;box-shadow:0 2px 14px rgba(60,40,20,.07);padding:12px}
+.em{border-radius:16px}.card h3{font-size:15px;font-weight:600;margin-top:4px}
+.chip{border-radius:999px;font-weight:500}.chip.on{background:var(--ac);border-color:var(--ac)}
+.panel{border:0;border-radius:22px;box-shadow:0 2px 14px rgba(60,40,20,.07)}
+.sb{width:100%;padding:12px 18px;border-radius:999px;border:1px solid var(--bd);background:var(--sf);margin-bottom:10px;outline:none}.sb:focus{border-color:var(--ac)}
+.hb{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#8a7f76;display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hb.on,.hb2.on{color:var(--ac)}.hb2{display:inline-flex;gap:6px;align-items:center}
+.dt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:14px}@media(max-width:640px){.dt{grid-template-columns:1fr}}
+.dimg .em{padding:0}
+:root{--bg:#f4f2ed;--sf:#fbfaf7;--tx:#1f2421;--mu:#6f756f;--ac:#3f5b4a;--ac2:#b9a27e;--bd:#e4e0d6;--ease:cubic-bezier(.22,1,.36,1)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121613;--sf:#1b211d;--tx:#ecefe9;--mu:#9aa59c;--ac:#8fb59b;--ac2:#c8b48e;--bd:#2a322c}}
+:root[data-theme="dark"]{--bg:#121613;--sf:#1b211d;--tx:#ecefe9;--mu:#9aa59c;--ac:#8fb59b;--ac2:#c8b48e;--bd:#2a322c}
+html{scroll-padding-top:90px}
+body{font-family:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif}
+header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);width:calc(100% - 24px);max-width:1000px;margin:8px auto 0;border:1px solid var(--bd);border-radius:26px;background:var(--sf);background:color-mix(in srgb,var(--sf) 78%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.logo{color:var(--tx);font-weight:800;letter-spacing:.18em;font-size:19px}
+.nb{color:var(--mu);font-weight:600;font-size:14px}.nb:hover{color:var(--tx)}.nb.on{background:var(--tx);color:var(--bg)}
+.btn{background:var(--tx);color:var(--bg)}.btn.o{background:transparent;color:var(--tx);border:1.5px solid var(--bd)}.btn.o:hover{border-color:var(--tx)}
+.chip{background:transparent;color:var(--mu);font-weight:600;font-size:14px}.chip.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#2f4a3a,#1b2e23);color:#f3f1ea;border-radius:30px;padding:58px 30px 54px}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-weight:800;letter-spacing:-.03em;max-width:15ch;animation:fade 1s var(--ease) both}.hero p{max-width:44ch;opacity:.85;animation:fade 1s .15s var(--ease) both}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero::before{width:340px;height:340px;right:-90px;top:-100px;background:radial-gradient(circle,rgba(200,180,142,.55),transparent 65%);animation:flo 9s ease-in-out infinite alternate}
+.hero::after{width:300px;height:300px;left:-80px;bottom:-130px;background:radial-gradient(circle,rgba(143,181,155,.4),transparent 65%);animation:flo 12s ease-in-out infinite alternate-reverse}
+@keyframes flo{to{transform:translate(-50px,45px) scale(1.2)}}
+.mq{overflow:hidden;margin:2px 0 14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mqi{display:flex;width:max-content;animation:mq 34s linear infinite;color:var(--mu);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.mqi span{display:flex;align-items:center;white-space:nowrap}.mqi span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac2);margin:0 26px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card{background:var(--sf);border:1px solid var(--bd);box-shadow:none;border-radius:24px}
+.card:hover,.vid:hover{box-shadow:0 18px 40px rgba(20,30,24,.1)}
+.card.in:hover{transform:translateY(-5px)}
+.em{overflow:hidden;border-radius:18px}.card:hover .em{transform:none}
+.em img,.em svg{transition:transform 1.2s var(--ease)}.card:hover .em img,.card:hover .em svg{transform:scale(1.07)}
+.pr{color:var(--tx);font-weight:700}.card small{font-size:12px;letter-spacing:.04em}
+.hb{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#5c645e}.hb.on,.hb2.on{color:#c0574a}
+.panel{background:var(--sf);border:1px solid var(--bd);box-shadow:none;border-radius:24px}
+.vid,.vid:nth-child(2),.vid:nth-child(3),.vid:nth-child(4){border-radius:22px;background:linear-gradient(160deg,#4a6355,#1d2a22)}
+.vid:nth-child(2){background:linear-gradient(160deg,#7a6a55,#2a231a)}.vid:nth-child(3){background:linear-gradient(160deg,#4f6670,#1b2a30)}.vid:nth-child(4){background:linear-gradient(160deg,#6b5a66,#251c25)}
+.m.u{background:var(--tx);color:var(--bg)}
+#pg{position:fixed;top:0;left:0;right:0;height:3px;background:var(--ac2);transform-origin:left;transform:scaleX(0);z-index:30}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.grid.anim .card{animation:none}
+@media(max-width:700px){nav{order:3;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.nb{white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<div id="pg"></div>
+<header>
+<div class="logo">KREASAE</div>
+<nav id="nav"></nav>
+<select id="lang" aria-label="Language"><option value="en">English</option><option value="id">Indonesia</option><option value="jv">Basa Jawa</option><option value="zh">中文</option></select>
+<button class="btn" id="cartBtn"></button>
+</header>
+<main>
+<section id="v-shop">
+<div class="hero"><h1 data-t="hero"></h1><p data-t="sub"></p></div>
+<div class="mq" id="mq" aria-hidden="true"></div><input type="search" id="q" class="sb" autocomplete="off"><div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+<h2 data-t="vidT"></h2>
+<p style="color:var(--mu);margin-top:-6px" data-t="vidD"></p>
+<div class="vids" id="vids"></div>
+</section>
+<section id="v-account" class="hide"></section>
+<section id="v-settings" class="hide"></section>
+<section id="v-checkout" class="hide"></section>
+<section id="v-detail" class="hide"></section>
+<section id="v-about" class="hide"></section>
+<section id="v-wish" class="hide"></section>
+</main>
+<footer>© KREASAE · Salatiga Eco Park, Central Java</footer>
+
+<div id="bk"></div>
+<aside id="cartP"><div class="row"><b data-t="cart"></b><button class="btn o" id="cartX">✕</button></div><div id="cartL"></div></aside>
+<button class="btn" id="ai" style="border-radius:30px;padding:12px 18px"></button>
+<div id="aiBox"><div class="row" style="padding:10px"><b data-t="aiT"></b><button class="btn o" id="aiX">✕</button></div><div id="msgs"></div>
+<div style="display:flex;gap:6px;padding:8px;border-top:1px solid var(--bd)"><input type="text" id="aiIn"><button class="btn" id="aiSend">➤</button></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const L={
+en:{shop:"Shop",account:"Account",settings:"Settings",cart:"Cart",hero:"Crafted by Salatiga, for the earth",sub:"Eco merchandise from Salatiga Eco Park: local, handmade, sustainable.",all:"All",add:"Add",empty:"Your cart is empty.",total:"Total",checkout:"Checkout",vidT:"From our Instagram",vidD:"Watch moments from Salatiga Eco Park.",watch:"Watch on Instagram",aiT:"Ask KREASAE AI",aiAsk:"Ask AI",aiPh:"Ask about products, usage, shipping…",aiHi:"Hi! I'm KREASAE's assistant. Ask me about our products, herbal remedies, or how to order.",login:"Sign in",register:"Create account",name:"Full name",email:"Email",pass:"Password",phone:"Phone",addr:"Address",save:"Save",logout:"Sign out",hello:"Hello",orders:"Order history",noOrd:"No orders yet.",theme:"Theme",light:"Light",dark:"Dark",auto:"Auto",notif:"Order notifications",curr:"Currency",lang:"Language",payM:"Payment method",place:"Place order",ok:"Order placed! Thank you",need:"Please sign in first.",saved:"Saved",added:"Added to cart",cats:{candle:"Aromatherapy Candles",pottery:"Pottery",hyacinth:"Water Hyacinth Crafts",plastic:"Recycled Plastic",herbal:"Herbal Medicine",drink:"Herbal Drinks",fabric:"Woven Cotton Fabric"},pays:{qris:"QRIS",gopay:"GoPay",ovo:"OVO",dana:"DANA",bank:"Bank Transfer (BCA/Mandiri/BRI)",card:"Credit / Debit Card",cod:"Cash on Delivery"},aiNo:"AI is unavailable right now."},
+id:{shop:"Toko",account:"Akun",settings:"Pengaturan",cart:"Keranjang",hero:"Dibuat di Salatiga, untuk bumi",sub:"Merchandise ramah lingkungan dari Salatiga Eco Park: lokal, buatan tangan, berkelanjutan.",all:"Semua",add:"Tambah",empty:"Keranjang masih kosong.",total:"Total",checkout:"Bayar",vidT:"Dari Instagram kami",vidD:"Tonton momen dari Salatiga Eco Park.",watch:"Tonton di Instagram",aiT:"Tanya AI KREASAE",aiAsk:"Tanya AI",aiPh:"Tanya produk, cara pakai, pengiriman…",aiHi:"Halo! Saya asisten KREASAE. Tanyakan tentang produk, jamu, atau cara memesan.",login:"Masuk",register:"Buat akun",name:"Nama lengkap",email:"Email",pass:"Kata sandi",phone:"Telepon",addr:"Alamat",save:"Simpan",logout:"Keluar",hello:"Halo",orders:"Riwayat pesanan",noOrd:"Belum ada pesanan.",theme:"Tema",light:"Terang",dark:"Gelap",auto:"Otomatis",notif:"Notifikasi pesanan",curr:"Mata uang",lang:"Bahasa",payM:"Metode pembayaran",place:"Pesan sekarang",ok:"Pesanan dibuat! Terima kasih",need:"Silakan masuk dulu.",saved:"Tersimpan",added:"Masuk keranjang",cats:{candle:"Lilin Aromaterapi",pottery:"Gerabah",hyacinth:"Kerajinan Eceng Gondok",plastic:"Daur Ulang Plastik",herbal:"Obat Herbal",drink:"Minuman Herbal",fabric:"Kain Tenun Katun"},pays:{qris:"QRIS",gopay:"GoPay",ovo:"OVO",dana:"DANA",bank:"Transfer Bank (BCA/Mandiri/BRI)",card:"Kartu Kredit / Debit",cod:"Bayar di Tempat"},aiNo:"AI sedang tidak tersedia."},
+jv:{shop:"Toko",account:"Akun",settings:"Setelan",cart:"Kranjang",hero:"Digawe ing Salatiga, kanggo bumi",sub:"Merchandise ramah lingkungan saka Salatiga Eco Park: lokal, gawenan tangan.",all:"Kabeh",add:"Tambah",empty:"Kranjang isih kosong.",total:"Total",checkout:"Mbayar",vidT:"Saka Instagram kita",vidD:"Tonton wektu-wektu saka Salatiga Eco Park.",watch:"Tonton ing Instagram",aiT:"Takon AI KREASAE",aiAsk:"Takon AI",aiPh:"Takon produk, cara nggunakake…",aiHi:"Halo! Aku asisten KREASAE. Takon babagan produk utawa jamu.",login:"Mlebu",register:"Gawe akun",name:"Jeneng lengkap",email:"Email",pass:"Tembung sandhi",phone:"Telpon",addr:"Alamat",save:"Simpen",logout:"Metu",hello:"Halo",orders:"Riwayat pesenan",noOrd:"Durung ana pesenan.",theme:"Tema",light:"Padhang",dark:"Peteng",auto:"Otomatis",notif:"Kabar pesenan",curr:"Mata uang",lang:"Basa",payM:"Cara pembayaran",place:"Pesen saiki",ok:"Pesenan kasil! Matur nuwun",need:"Mangga mlebu dhisik.",saved:"Kasimpen",added:"Mlebu kranjang",cats:{candle:"Lilin Aromaterapi",pottery:"Gerabah",hyacinth:"Kerajinan Eceng Gondok",plastic:"Daur Ulang Plastik",herbal:"Jamu",drink:"Unjukan Jamu",fabric:"Kain Tenun Katun"},pays:{qris:"QRIS",gopay:"GoPay",ovo:"OVO",dana:"DANA",bank:"Transfer Bank",card:"Kartu Kredit / Debit",cod:"Bayar ing Panggonan"},aiNo:"AI lagi ora kasedhiya."},
+zh:{shop:"商店",account:"账户",settings:"设置",cart:"购物车",hero:"萨拉蒂加手作，为地球而生",sub:"来自萨拉蒂加生态公园的环保周边：本地、手工、可持续。",all:"全部",add:"加入",empty:"购物车是空的。",total:"合计",checkout:"结账",vidT:"来自我们的 Instagram",vidD:"观看萨拉蒂加生态公园的精彩瞬间。",watch:"在 Instagram 观看",aiT:"询问 KREASAE AI",aiAsk:"问 AI",aiPh:"询问产品、用法、配送…",aiHi:"你好！我是 KREASAE 助手，可以问我产品、草药或下单方式。",login:"登录",register:"注册账户",name:"姓名",email:"邮箱",pass:"密码",phone:"电话",addr:"地址",save:"保存",logout:"退出",hello:"你好",orders:"订单记录",noOrd:"暂无订单。",theme:"主题",light:"浅色",dark:"深色",auto:"自动",notif:"订单通知",curr:"货币",lang:"语言",payM:"支付方式",place:"提交订单",ok:"下单成功！谢谢",need:"请先登录。",saved:"已保存",added:"已加入购物车",cats:{candle:"香薰蜡烛",pottery:"陶器",hyacinth:"水葫芦工艺品",plastic:"再生塑料",herbal:"草药",drink:"草本饮品",fabric:"棉织布"},pays:{qris:"QRIS",gopay:"GoPay",ovo:"OVO",dana:"DANA",bank:"银行转账",card:"信用卡/借记卡",cod:"货到付款"},aiNo:"AI 暂时不可用。"}};
+const N={en:{about:"About",wish:"Wishlist",search:"Search products…",none:"No products found.",back:"Back",ig:"Follow on Instagram",wishE:"No favorites yet. Tap the heart on a product.",abT:"About Sae Park",ab1:"Salatiga Eco Park (Sae Park) is an eco-education tourism park in Salatiga, Central Java. Visitors learn hands-on crafts that turn local natural materials and waste into valuable products.",ab2:"KREASAE is the digital home of these creations: candles, pottery, water hyacinth crafts, recycled plastic, herbal drinks and medicine, and woven cotton cloth, made for the world in many languages.",desc:{candle:"Hand-poured soy wax candle with a calming natural scent, made at Sae Park.",pottery:"Handmade ceramic shaped from local clay, with a rustic natural finish.",hyacinth:"Woven from dried water hyacinth, a river weed turned into a durable craft.",plastic:"Crafted from recycled plastic waste to give discarded material a second life.",herbal:"Traditional herbal product made from turmeric, ginger and other local plants.",drink:"Fresh jamu-style herbal drink brewed from local roots and spices.",fabric:"Handwoven cotton cloth with traditional motifs, spun and dyed by hand."}},
+id:{about:"Tentang",wish:"Favorit",search:"Cari produk…",none:"Produk tidak ditemukan.",back:"Kembali",ig:"Ikuti di Instagram",wishE:"Belum ada favorit. Ketuk hati pada produk.",abT:"Tentang Sae Park",ab1:"Salatiga Eco Park (Sae Park) adalah wisata edukasi ramah lingkungan di Salatiga, Jawa Tengah. Pengunjung belajar membuat kerajinan yang mengubah bahan alam lokal dan sampah menjadi produk bernilai.",ab2:"KREASAE adalah rumah digital karya-karya ini: lilin, gerabah, kerajinan eceng gondok, daur ulang plastik, jamu dan minuman herbal, serta kain tenun katun, untuk dunia dalam banyak bahasa.",desc:{candle:"Lilin soy wax tuang tangan dengan aroma alami yang menenangkan, dibuat di Sae Park.",pottery:"Keramik buatan tangan dari tanah liat lokal dengan tampilan alami yang rustik.",hyacinth:"Dianyam dari eceng gondok kering, gulma sungai yang diubah menjadi kerajinan awet.",plastic:"Dibuat dari sampah plastik daur ulang agar bahan buangan punya hidup kedua.",herbal:"Produk herbal tradisional dari kunyit, jahe, dan tanaman lokal lainnya.",drink:"Minuman herbal ala jamu segar dari rempah dan akar lokal.",fabric:"Kain katun tenun tangan dengan motif tradisional, dipintal dan diwarnai manual."}},
+zh:{about:"关于",wish:"收藏",search:"搜索产品…",none:"未找到产品。",back:"返回",ig:"在 Instagram 关注",wishE:"还没有收藏，点击产品上的爱心。",abT:"关于 Sae Park",ab1:"萨拉蒂加生态公园（Sae Park）是中爪哇萨拉蒂加的环保教育旅游公园。游客可亲手学习将本地天然材料和废弃物变成有价值的产品。",ab2:"KREASAE 是这些作品的数字之家：蜡烛、陶器、水葫芦工艺品、再生塑料、草本饮品与草药，以及棉织布，用多种语言面向世界。",desc:{candle:"手工浇注的大豆蜡烛，香气天然舒缓，产自 Sae Park。",pottery:"以本地陶土手工制作的陶器，质朴自然。",hyacinth:"以干燥水葫芦编织而成，将河中杂草变为耐用工艺品。",plastic:"用回收塑料废料制成，让废弃物获得新生。",herbal:"以姜黄、生姜等本地植物制成的传统草本产品。",drink:"以本地根茎与香料调制的新鲜草本饮品。",fabric:"手工织造的棉布，带有传统纹样。"}}};
+N.jv=Object.assign({},N.id,{about:"Babagan",wish:"Favorit",search:"Goleki produk…",none:"Ora ana produk.",back:"Bali"});
+for(const k in N)Object.assign(L[k],N[k]);
+const P=[
+["c1","candle","🕯️","Lavender Soy Candle",45000],
+["p1","pottery","🏺","Ceramic Cup Set",120000],
+["h1","hyacinth","🧺","Water Hyacinth Fish Keychain",18000],
+["r1","plastic","♻️","Recycled Plastic Tote",65000],
+["m1","herbal","🌿","Turmeric Herbal Balm",35000],
+["d1","drink","","Jamu Herbal Drink Bottle",20000],
+["r2","plastic","","Recycled Plastic Leaf Keychain",12000],
+["f1","fabric","","Cotton Woven Cloth, Lizard Motif",450000],
+["f2","fabric","","NTT Cotton Woven Cloth, Pink Ikat",350000],
+["f3","fabric","","Cotton Ikat Woven Cloth, Blue Stripe",500000],
+
+];
+const S={lang:"en",cat:"all",view:"shop",cart:{},user:null,orders:[],set:{theme:"auto",notif:true,curr:"IDR"}};
+const $=id=>document.getElementById(id),t=k=>L[S.lang][k];
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+S.lang=ls.get("k_lang","en");S.cart=ls.get("k_cart",{});S.wish=ls.get("k_wish",[]);S.q="";S.pid=null;S.user=ls.get("k_user",null);S.orders=ls.get("k_orders",[]);S.set=Object.assign(S.set,ls.get("k_set",{}));
+const RATE={IDR:1,USD:1/16000,EUR:1/17500};
+const money=n=>{const c=S.set.curr||"IDR",v=n*RATE[c];return c==="IDR"?"Rp"+Math.round(v).toLocaleString("id-ID"):(c==="USD"?"$":"€")+v.toFixed(2)};
+const toast=m=>{const e=$("toast");e.textContent=m;e.style.display="block";setTimeout(()=>e.style.display="none",1800)};
+const count=()=>Object.values(S.cart).reduce((a,b)=>a+b,0);
+const total=()=>Object.entries(S.cart).reduce((a,[id,q])=>a+P.find(p=>p[0]==id)[4]*q,0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const PH={f1:"img/kain-tenun-cicak.jpg",f2:"img/kain-tenun-ntt-pink.jpg",f3:"img/kain-ikat-biru.jpg",d1:"img/jamu-botol.jpg",r2:"img/gantungan-daun-plastik.jpg",c1:"img/lilin-lavender.jpg",m1:"img/balsem-kunyit.jpg",p1:"img/cangkir-keramik.jpg",r1:"img/tas-tote-daur-ulang.jpg",h1:"img/gantungan-ikan-eceng-gondok.jpg"};
+const A={
+candle:v=>[v?"#fbf4d3":"#f1e9f8",`<ellipse cx="60" cy="90" rx="36" ry="5" fill="#000" opacity=".08"/><rect x="34" y="42" width="52" height="46" rx="9" fill="${v?"#e6d24a":"#b79ddb"}"/><rect x="34" y="42" width="52" height="46" rx="9" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><rect x="58" y="30" width="4" height="13" rx="2" fill="#4a3b2a"/><path d="M60 10c9 9 7 16 0 21-7-5-9-12 0-21z" fill="#f5a623"/><path d="M60 19c4 4 3 8 0 10-3-2-4-6 0-10z" fill="#ffe08a"/><path d="M42 56h36" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>`],
+pottery:v=>["#f6e3d3",v?`<rect x="34" y="30" width="46" height="54" rx="8" fill="#d98e5f"/><path d="M80 42h8a10 10 0 0 1 0 24h-8" fill="none" stroke="#d98e5f" stroke-width="7"/><rect x="34" y="30" width="46" height="9" rx="4" fill="#b5703f"/><path d="M42 58h30" stroke="#f5dcc3" stroke-width="3" stroke-linecap="round"/>`:`<path d="M38 34h44l5 8c9 26-3 46-27 46S25 68 33 42z" fill="#c8693f"/><rect x="34" y="28" width="52" height="10" rx="4" fill="#a9532d"/><path d="M40 58c14 6 26 6 40 0" stroke="#f0c9a8" stroke-width="3" fill="none" stroke-linecap="round"/>`],
+hyacinth:v=>["#e6efdb",v?`<path d="M44 38c0-22 32-22 32 0" fill="none" stroke="#8a6a35" stroke-width="5"/><rect x="28" y="38" width="64" height="50" rx="8" fill="#cfa965"/><path d="M28 52h64M28 66h64M28 80h64" stroke="#a17c42" stroke-width="3"/><circle cx="60" cy="58" r="4" fill="#5b9a4a"/>`:`<path d="M34 40c0-26 52-26 52 0" fill="none" stroke="#8a6a35" stroke-width="5"/><path d="M26 44h68l-8 40a6 6 0 0 1-6 5H40a6 6 0 0 1-6-5z" fill="#cfa965"/><path d="M30 56h60M33 68h54M36 80h48" stroke="#a17c42" stroke-width="3"/><path d="M92 30c10-2 14 4 14 4s-6 8-14 4z" fill="#5b9a4a"/>`],
+plastic:v=>["#dcecf2",v?`<rect x="38" y="44" width="44" height="44" rx="6" fill="#4aa3b8" opacity=".9"/><path d="M38 58h44M38 72h44" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><path d="M48 44l-6-26" stroke="#e86a4a" stroke-width="5" stroke-linecap="round"/><path d="M60 44V12" stroke="#f5c542" stroke-width="5" stroke-linecap="round"/><path d="M72 44l8-24" stroke="#5b9a4a" stroke-width="5" stroke-linecap="round"/>`:`<path d="M44 36c0-22 32-22 32 0" fill="none" stroke="#2c7a8c" stroke-width="5"/><path d="M30 36h60l5 50H25z" fill="#3a9bb0"/><path d="M60 52l9 15H51z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>`],
+herbal:v=>["#e3f0df",v?`<rect x="40" y="26" width="40" height="62" rx="8" fill="#c97f3a"/><rect x="44" y="16" width="32" height="14" rx="4" fill="#5a3a1c"/><rect x="46" y="46" width="28" height="26" rx="3" fill="#f5f0dc"/><path d="M52 66c0-8 8-10 16-10 0 8-6 12-16 10z" fill="#5b9a4a"/>`:`<rect x="32" y="50" width="56" height="38" rx="8" fill="#7a9a54"/><rect x="30" y="38" width="60" height="16" rx="5" fill="#4d6b34"/><rect x="42" y="62" width="36" height="16" rx="3" fill="#f5f0dc"/><path d="M52 74c0-8 8-10 16-10 0 8-6 12-16 10z" fill="#5b9a4a"/>`],
+drink:v=>["#f9e5d0",v?`<rect x="46" y="14" width="28" height="12" rx="3" fill="#6b4a2a"/><path d="M48 26h24l8 14v44a6 6 0 0 1-6 6H46a6 6 0 0 1-6-6V40z" fill="#d9a21a"/><rect x="44" y="52" width="32" height="22" rx="3" fill="#fff" opacity=".85"/><circle cx="60" cy="63" r="5" fill="#e8873a"/>`:`<path d="M34 42h48l-4 40a8 8 0 0 1-8 7H46a8 8 0 0 1-8-7z" fill="#e8873a"/><path d="M82 50h6a9 9 0 0 1 0 18h-8" fill="none" stroke="#e8873a" stroke-width="6"/><path d="M48 32c-4-6 4-8 0-14M62 32c-4-6 4-8 0-14M74 32c-4-6 4-8 0-14" stroke="#b58a63" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>`],
+fabric:v=>["#f4e6e6",v?`<rect x="10" y="38" width="100" height="30" rx="3" fill="#2f6b8a"/><path d="M10 46h100M10 60h100" stroke="#f5d78a" stroke-width="3"/><path d="M30 38v30M50 38v30M70 38v30M90 38v30" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>`:`<path d="M34 14h52v66c-8 6-18-6-26 0s-18-6-26 0z" fill="#c2566b"/><path d="M34 30h52M34 46h52M34 62h52" stroke="#f5d78a" stroke-width="4"/><path d="M38 84v8M46 84v8M54 84v8M62 84v8M70 84v8M78 84v8" stroke="#c2566b" stroke-width="2" stroke-linecap="round"/>`]};
+function art(p){if(PH[p[0]])return `<div class="em" style="padding:0;overflow:hidden"><img src="${PH[p[0]]}" alt="${esc(p[3])}" data-id="${p[0]}"></div>`;const [bg,s]=A[p[1]](+p[0].slice(-1)-1);return `<div class="em" style="background:${bg}"><svg viewBox="0 0 120 100" role="img" aria-label="${esc(p[3])}">${s}</svg></div>`}
+const SV='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px">';
+const IC_CART=SV+'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/></svg>';
+const IC_AI=SV+'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>';
+function thumb(p){return art(p).replace('class="em"','class="th"')}
+const HEART=f=>`<svg width="20" height="20" viewBox="0 0 24 24" fill="${f?"currentColor":"none"}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z"/></svg>`;
+const wished=id=>S.wish.includes(id);
+function card(p){const w=wished(p[0]);return `<div class="card" data-d="${p[0]}">${art(p)}<button class="hb ${w?"on":""}" data-w="${p[0]}" aria-label="${t("wish")}">${HEART(w)}</button><h3>${p[3]}</h3><small>${t("cats")[p[1]]}</small><div class="pr">${money(p[4])}</div><button class="btn" data-a="${p[0]}">${t("add")}</button></div>`}
+function det(){const p=P.find(x=>x[0]===S.pid);if(!p)return;const w=wished(p[0]);$("v-detail").innerHTML=`<button class="btn o" data-v="shop">← ${t("back")}</button><div class="dt"><div class="dimg">${art(p)}</div><div><small>${t("cats")[p[1]]}</small><h2 style="margin:4px 0 8px">${p[3]}</h2><div class="pr" style="font-size:24px">${money(p[4])}</div><p>${t("desc")[p[1]]}</p><p><button class="btn" data-a="${p[0]}">${t("add")}</button> <button class="btn o hb2 ${w?"on":""}" data-w="${p[0]}">${HEART(w)} ${t("wish")}</button></p></div></div>`}
+function abt(){$("v-about").innerHTML=`<div class="panel"><h2 style="margin-top:0">${t("abT")}</h2><p>${t("ab1")}</p><p>${t("ab2")}</p><p><a class="btn" href="https://www.instagram.com/saeparksalatiga/" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block">${t("ig")}</a></p></div>`}
+function wsh(){const l=P.filter(p=>wished(p[0]));$("v-wish").innerHTML=`<h2 style="margin-top:0">${t("wish")}</h2>`+(l.length?`<div class="grid">${l.map(card).join("")}</div>`:`<p>${t("wishE")}</p>`)}
+function theme(){const r=document.documentElement;if(S.set.theme==="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",S.set.theme)}
+function show(v){S.view=v;["shop","account","settings","checkout","detail","about","wish"].forEach(x=>$("v-"+x).classList.toggle("hide",x!==v));render();scrollTo({top:0,behavior:"smooth"})}
+function render(){
+ document.documentElement.lang=S.lang;$("lang").value=S.lang;theme();
+ document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
+ $("nav").innerHTML=["shop","about","wish","account","settings"].map(v=>`<button class="nb ${S.view===v?"on":""}" data-v="${v}">${t(v)}</button>`).join("");
+ $("q").placeholder=t("search");{const c=Object.values(t("cats")),h=[...c,...c].map(s=>`<span>${s}</span>`).join("");$("mq").innerHTML=`<div class="mqi">${h}${h}</div>`}$("cartBtn").innerHTML=IC_CART+" "+count();$("ai").innerHTML=IC_AI+" "+t("aiAsk");$("aiIn").placeholder=t("aiPh");
+ const cats=["all",...Object.keys(L.en.cats).filter(c=>P.some(p=>p[1]===c))];
+ $("chips").innerHTML=cats.map(c=>`<button class="chip ${S.cat===c?"on":""}" data-c="${c}">${c==="all"?t("all"):t("cats")[c]}</button>`).join("");
+ const list=P.filter(p=>(S.cat==="all"||p[1]===S.cat)&&(!S.q||(p[3]+" "+t("cats")[p[1]]).toLowerCase().includes(S.q)));$("grid").innerHTML=list.length?list.map(card).join(""):`<p style="color:var(--mu)">${t("none")}</p>`;
+ const an=animNext;$("grid").classList.toggle("anim",an);animNext=false;
+ $("vids").innerHTML=[1,2,3,4].map(i=>`<a class="vid" href="https://www.instagram.com/saeparksalatiga/" target="_blank" rel="noopener"><svg class="play" width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#fff" fill-opacity=".25"/><path d="M20 15l14 9-14 9z" fill="#fff"/></svg><b>Salatiga Eco Park</b><small>${t("watch")} ↗</small></a>`).join("");
+ cartR();
+ if(S.view==="account")acc();if(S.view==="settings")sett();if(S.view==="checkout")chk();if(S.view==="detail")det();if(S.view==="about")abt();if(S.view==="wish")wsh();reveal(!an);
+}
+function cartR(){
+ const ids=Object.keys(S.cart);
+ $("cartL").innerHTML=ids.length?ids.map(id=>{const p=P.find(x=>x[0]==id);return `<div class="row"><span>${thumb(p)}${p[3]}<br><small>${money(p[4])}</small></span><span><button class="btn o" data-q="${id}:-1">−</button> ${S.cart[id]} <button class="btn o" data-q="${id}:1">+</button></span></div>`}).join("")+`<div class="row"><b>${t("total")}</b><b>${money(total())}</b></div><button class="btn" style="width:100%" data-go="checkout">${t("checkout")}</button>`:`<p>${t("empty")}</p>`;
+}
+function acc(){
+ const u=S.user,el=$("v-account");
+ if(!u){el.innerHTML=`<div class="panel"><h2 style="margin-top:0">${t("login")} / ${t("register")}</h2><label>${t("name")}</label><input type="text" id="an"><label>${t("email")}</label><input type="email" id="ae"><label>${t("pass")}</label><input type="password" id="ap"><p><button class="btn" id="reg">${t("register")}</button> <button class="btn o" id="log">${t("login")}</button></p></div>`;return}
+ el.innerHTML=`<div class="panel"><h2 style="margin-top:0">${t("hello")}, ${esc(u.name)}</h2><label>${t("name")}</label><input type="text" id="an" value="${esc(u.name)}"><label>${t("email")}</label><input type="email" value="${esc(u.email)}" disabled><label>${t("phone")}</label><input type="tel" id="aph" value="${esc(u.phone||"")}"><label>${t("addr")}</label><input type="text" id="aad" value="${esc(u.addr||"")}"><p><button class="btn" id="sv">${t("save")}</button> <button class="btn o" id="out">${t("logout")}</button></p></div><div class="panel"><b>${t("orders")}</b>${S.orders.length?S.orders.map(o=>`<div class="row"><span>#${o.id} · ${o.date}<br><small>${esc(o.pay)}</small></span><b>${money(o.total)}</b></div>`).join(""):`<p>${t("noOrd")}</p>`}</div>`;
+}
+function sett(){
+ $("v-settings").innerHTML=`<div class="panel"><label>${t("theme")}</label><select id="sth">${["auto","light","dark"].map(x=>`<option value="${x}" ${S.set.theme===x?"selected":""}>${t(x)}</option>`).join("")}</select><label>${t("curr")}</label><select id="scu">${["IDR","USD","EUR"].map(x=>`<option ${S.set.curr===x?"selected":""}>${x}</option>`).join("")}</select><label>${t("lang")}</label><select id="sla">${[["en","English"],["id","Indonesia"],["jv","Basa Jawa"],["zh","中文"]].map(x=>`<option value="${x[0]}" ${S.lang===x[0]?"selected":""}>${x[1]}</option>`).join("")}</select><label style="display:flex;gap:8px;align-items:center;color:var(--tx)"><input type="checkbox" id="sno" ${S.set.notif?"checked":""}> ${t("notif")}</label></div>`;
+}
+function chk(){
+ const pays=Object.keys(L.en.pays);
+ $("v-checkout").innerHTML=`<div class="panel"><h2 style="margin-top:0">${t("checkout")}</h2>${Object.keys(S.cart).map(id=>{const p=P.find(x=>x[0]==id);return `<div class="row"><span>${p[3]} × ${S.cart[id]}</span><span>${money(p[4]*S.cart[id])}</span></div>`}).join("")}<div class="row"><b>${t("total")}</b><b>${money(total())}</b></div></div><div class="panel pay"><b>${t("payM")}</b>${pays.map((k,i)=>`<label><input type="radio" name="pm" value="${k}" ${i?"":"checked"}> ${t("pays")[k]}</label>`).join("")}<p><button class="btn" id="place">${t("place")}</button></p></div>`;
+}
+document.addEventListener("click",e=>{
+ const b=e.target.closest("button,a");if(!b){const c=e.target.closest("[data-d]");if(c){S.pid=c.dataset.d;show("detail")}return}const d=b.dataset;
+ if(d.v)show(d.v);else if(d.c){S.cat=d.c;animNext=true;render();b.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"})}
+ else if(d.w){const i=S.wish.indexOf(d.w);i<0?S.wish.push(d.w):S.wish.splice(i,1);ls.set("k_wish",S.wish);render()}else if(d.a){S.cart[d.a]=(S.cart[d.a]||0)+1;ls.set("k_cart",S.cart);render();toast(t("added"))}
+ else if(d.q){const[i,n]=d.q.split(":");S.cart[i]=(S.cart[i]||0)+ +n;if(S.cart[i]<=0)delete S.cart[i];ls.set("k_cart",S.cart);render()}
+ else if(d.go){cart(false);if(!S.user){toast(t("need"));show("account")}else show("checkout")}
+ else if(b.id==="cartBtn")cart(true);else if(b.id==="cartX")cart(false);
+ else if(b.id==="reg"||b.id==="log"){const n=$("an").value.trim(),m=$("ae").value.trim();if(!m||!$("ap").value)return;S.user={name:n||m.split("@")[0],email:m};ls.set("k_user",S.user);render()}
+ else if(b.id==="sv"){S.user.name=$("an").value||S.user.name;S.user.phone=$("aph").value;S.user.addr=$("aad").value;ls.set("k_user",S.user);toast(t("saved"));render()}
+ else if(b.id==="out"){S.user=null;ls.set("k_user",null);render()}
+ else if(b.id==="place"){const pm=document.querySelector("input[name=pm]:checked").value;S.orders.unshift({id:Date.now().toString().slice(-6),date:new Date().toLocaleDateString(),total:total(),pay:t("pays")[pm]});ls.set("k_orders",S.orders);S.cart={};ls.set("k_cart",S.cart);toast(t("ok"));show("account")}
+ else if(b.id==="ai"||b.id==="aiX")aiToggle();else if(b.id==="aiSend")aiAsk();
+});
+document.addEventListener("change",e=>{
+ const i=e.target.id;
+ if(i==="lang"||i==="sla"){S.lang=e.target.value;ls.set("k_lang",S.lang);render()}
+ else if(i==="sth"){S.set.theme=e.target.value;ls.set("k_set",S.set);render()}
+ else if(i==="scu"){S.set.curr=e.target.value;ls.set("k_set",S.set);render()}
+ else if(i==="sno"){S.set.notif=e.target.checked;ls.set("k_set",S.set)}
+});
+$("aiIn").addEventListener("keydown",e=>{if(e.key==="Enter")aiAsk()});
+let hist=[],sample=null,aiInit=false;
+function msg(c,x){const d=document.createElement("div");d.className="m "+c;d.textContent=x;$("msgs").appendChild(d);$("msgs").scrollTop=1e9;return d}
+function aiToggle(){$("aiBox").classList.toggle("open");if(!aiInit){aiInit=true;msg("b",t("aiHi"))}}
+async function aiAsk(){
+ const q=$("aiIn").value.trim();if(!q)return;$("aiIn").value="";msg("u",q);const out=msg("b","…");
+ try{
+  if(!sample)sample=await claude.use("sample");
+  if(!sample){out.textContent=t("aiNo");return}
+  const cat=P.map(p=>`${p[3]} (${t("cats")[p[1]]}, Rp${p[4]})`).join("; ");
+  hist.push({role:"user",content:q});
+  const sys=`You are the shopping assistant of KREASAE, the online shop for Salatiga Eco Park (Central Java, Indonesia) merchandise. Reply in the language with code "${S.lang}" unless the user writes in another. Be concise (max 4 sentences). Catalog: ${cat}. Payments: QRIS, GoPay, OVO, DANA, bank transfer, card, COD. Give general product/usage info only; for herbal products, say they are traditional, not a substitute for medical advice, and suggest a doctor for health conditions. Never invent prices or policies beyond the catalog.\n`;
+  const r=await sample([{role:"user",content:sys+"Conversation so far:\n"+hist.slice(0,-1).map(m=>m.role+": "+m.content).join("\n")+"\nuser: "+q}],{cache:false,onText:({text})=>{out.textContent=text}});
+  out.textContent=r.text;hist.push({role:"assistant",content:r.text});hist=hist.slice(-10);
+ }catch(e){out.textContent=t("aiNo")}
+}
+function cart(o){$("cartP").classList.toggle("open",o);$("bk").classList.toggle("on",o)}
+$("bk").onclick=()=>cart(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){cart(false);$("aiBox").classList.remove("open")}});
+let animNext=true;
+function fb(el){const p=P.find(x=>x[0]===el.dataset.id);if(!p)return;const[bg,s]=A[p[1]](+p[0].slice(-1)-1),w=el.parentNode;w.style.background=bg;w.innerHTML=`<svg viewBox="0 0 120 100">${s}</svg>`}
+document.addEventListener("error",e=>{if(e.target&&e.target.tagName==="IMG")fb(e.target)},true);
+setTimeout(()=>document.querySelectorAll(".rv:not(.in)").forEach(el=>el.classList.add("in")),3500);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);setTimeout(()=>e.target.style.transitionDelay="",1400)}}),{threshold:.12});
+function reveal(now){let i=0;document.querySelectorAll("#v-shop .card,#v-shop .vid,#v-shop h2,#v-wish .card,.panel").forEach(el=>{if(el.classList.contains("rv"))return;el.classList.add("rv");if(now)el.classList.add("in");else{el.style.transitionDelay=(i++%6)*70+"ms";io.observe(el)}})}
+addEventListener("scroll",()=>{const h=document.documentElement;$("pg").style.transform="scaleX("+Math.min(1,scrollY/Math.max(1,h.scrollHeight-innerHeight))+")"},{passive:true});
+$("q").addEventListener("input",e=>{S.q=e.target.value.trim().toLowerCase();if(S.view==="shop")render()});
+render();
+</script></body></html>
